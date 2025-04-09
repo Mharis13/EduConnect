@@ -1,0 +1,173 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\mario\\Desktop\\EduConnect\\Backend\\EduconnectAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7284165F-3B9D-4849-AC81-B75454EB2A77}|EduconnectAPI.csproj|c:\\users\\mario\\desktop\\educonnect\\backend\\educonnectapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7284165F-3B9D-4849-AC81-B75454EB2A77}|EduconnectAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7284165F-3B9D-4849-AC81-B75454EB2A77}|EduconnectAPI.csproj|c:\\users\\mario\\desktop\\educonnect\\backend\\educonnectapi\\config\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7284165F-3B9D-4849-AC81-B75454EB2A77}|EduconnectAPI.csproj|solutionrelative:config\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7284165F-3B9D-4849-AC81-B75454EB2A77}|EduconnectAPI.csproj|c:\\users\\mario\\desktop\\educonnect\\backend\\educonnectapi\\models\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7284165F-3B9D-4849-AC81-B75454EB2A77}|EduconnectAPI.csproj|solutionrelative:models\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7284165F-3B9D-4849-AC81-B75454EB2A77}|EduconnectAPI.csproj|c:\\users\\mario\\desktop\\educonnect\\backend\\educonnectapi\\models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7284165F-3B9D-4849-AC81-B75454EB2A77}|EduconnectAPI.csproj|solutionrelative:models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7284165F-3B9D-4849-AC81-B75454EB2A77}|EduconnectAPI.csproj|c:\\users\\mario\\desktop\\educonnect\\backend\\educonnectapi\\models\\enrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7284165F-3B9D-4849-AC81-B75454EB2A77}|EduconnectAPI.csproj|solutionrelative:models\\enrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7284165F-3B9D-4849-AC81-B75454EB2A77}|EduconnectAPI.csproj|c:\\users\\mario\\desktop\\educonnect\\backend\\educonnectapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7284165F-3B9D-4849-AC81-B75454EB2A77}|EduconnectAPI.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7284165F-3B9D-4849-AC81-B75454EB2A77}|EduconnectAPI.csproj|c:\\users\\mario\\desktop\\educonnect\\backend\\educonnectapi\\educonnectapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{7284165F-3B9D-4849-AC81-B75454EB2A77}|EduconnectAPI.csproj|solutionrelative:educonnectapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7284165F-3B9D-4849-AC81-B75454EB2A77}|EduconnectAPI.csproj|c:\\users\\mario\\desktop\\educonnect\\backend\\educonnectapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7284165F-3B9D-4849-AC81-B75454EB2A77}|EduconnectAPI.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7284165F-3B9D-4849-AC81-B75454EB2A77}|EduconnectAPI.csproj|c:\\users\\mario\\desktop\\educonnect\\backend\\educonnectapi\\models\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7284165F-3B9D-4849-AC81-B75454EB2A77}|EduconnectAPI.csproj|solutionrelative:models\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Notification.cs",
+              "DocumentMoniker": "C:\\Users\\mario\\Desktop\\EduConnect\\Backend\\EduconnectAPI\\Models\\Notification.cs",
+              "RelativeDocumentMoniker": "Models\\Notification.cs",
+              "ToolTip": "C:\\Users\\mario\\Desktop\\EduConnect\\Backend\\EduconnectAPI\\Models\\Notification.cs",
+              "RelativeToolTip": "Models\\Notification.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T10:06:30.846Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Enrollment.cs",
+              "DocumentMoniker": "C:\\Users\\mario\\Desktop\\EduConnect\\Backend\\EduconnectAPI\\Models\\Enrollment.cs",
+              "RelativeDocumentMoniker": "Models\\Enrollment.cs",
+              "ToolTip": "C:\\Users\\mario\\Desktop\\EduConnect\\Backend\\EduconnectAPI\\Models\\Enrollment.cs",
+              "RelativeToolTip": "Models\\Enrollment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T10:06:17.887Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Course.cs",
+              "DocumentMoniker": "C:\\Users\\mario\\Desktop\\EduConnect\\Backend\\EduconnectAPI\\Models\\Course.cs",
+              "RelativeDocumentMoniker": "Models\\Course.cs",
+              "ToolTip": "C:\\Users\\mario\\Desktop\\EduConnect\\Backend\\EduconnectAPI\\Models\\Course.cs",
+              "RelativeToolTip": "Models\\Course.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T10:05:34.054Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\mario\\Desktop\\EduConnect\\Backend\\EduconnectAPI\\Config\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Config\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\mario\\Desktop\\EduConnect\\Backend\\EduconnectAPI\\Config\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Config\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAQwDIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T09:05:26.588Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\mario\\Desktop\\EduConnect\\Backend\\EduconnectAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\mario\\Desktop\\EduConnect\\Backend\\EduconnectAPI\\appsettings.json*",
+              "RelativeToolTip": "appsettings.json*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAADEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-16T08:56:00.349Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\mario\\Desktop\\EduConnect\\Backend\\EduconnectAPI\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\mario\\Desktop\\EduConnect\\Backend\\EduconnectAPI\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-16T08:55:45.026Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\mario\\Desktop\\EduConnect\\Backend\\EduconnectAPI\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\mario\\Desktop\\EduConnect\\Backend\\EduconnectAPI\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T07:29:53.782Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "WeatherForecast.cs",
+              "DocumentMoniker": "C:\\Users\\mario\\Desktop\\EduConnect\\Backend\\EduconnectAPI\\Models\\WeatherForecast.cs",
+              "RelativeDocumentMoniker": "Models\\WeatherForecast.cs",
+              "ToolTip": "C:\\Users\\mario\\Desktop\\EduConnect\\Backend\\EduconnectAPI\\Models\\WeatherForecast.cs*",
+              "RelativeToolTip": "Models\\WeatherForecast.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T07:30:32.032Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "EduconnectAPI.csproj",
+              "DocumentMoniker": "C:\\Users\\mario\\Desktop\\EduConnect\\Backend\\EduconnectAPI\\EduconnectAPI.csproj",
+              "RelativeDocumentMoniker": "EduconnectAPI.csproj",
+              "ToolTip": "C:\\Users\\mario\\Desktop\\EduConnect\\Backend\\EduconnectAPI\\EduconnectAPI.csproj",
+              "RelativeToolTip": "EduconnectAPI.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-04-16T07:30:01.35Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

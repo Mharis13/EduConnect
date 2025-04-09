@@ -1,0 +1,24 @@
+# Archivos y carpetas de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de compilación
+/build/
+/.idea/
+/.gradle/
+/local.properties
+
+# Archivos de configuración de Android Studio
+*.iml
+*.hprof
+
+# Archivos de caché
+/captures/
+/output.json
+
+# Archivos de registro
+*.log
+
+# Archivos de usuario
+*.keystore
+*.jks
