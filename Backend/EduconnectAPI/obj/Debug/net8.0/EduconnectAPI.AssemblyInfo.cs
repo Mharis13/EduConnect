@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EduconnectAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9478ea09576bf73045ac193439104bccbb1a2ad0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d65e4cebe9611d00cb29fc39bac1495f97e088ea")]
 [assembly: System.Reflection.AssemblyProductAttribute("EduconnectAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EduconnectAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
