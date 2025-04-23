@@ -1,0 +1,52 @@
+# Archivos y carpetas de compilación
+bin/
+obj/
+out/
+
+# Configuración de usuario de Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Archivos de configuración de depuración
+launchSettings.json
+
+# Archivos de paquetes
+*.nupkg
+*.snupkg
+
+# Archivos de bloqueo y dependencias
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Archivos de publicación
+.publish/
+
+# Archivos de caché
+*.log
+*.cache
+*.pdb
+*.mdb
+
+# Archivos de configuración de sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración de IDE
+.idea/
+*.iml
+
+# Archivos de configuración de Entity Framework
+Migrations/
+
+# Archivos de configuración de Docker
+docker-compose.override.yml
+
+# Archivos de configuración de secretos
+secrets.json
+
+# Archivos de configuración de Rider
+*.sln.DotSettings.user
