@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
+import com.marioban2dam.educonnect.decodeRoleFromToken
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -31,11 +32,11 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.marioban2dam.educonnect.R
-import com.marioban2dam.educonnect.decodeRoleFromToken
 import com.marioban2dam.educonnect.retrofit.CourseInterface
 import com.marioban2dam.educonnect.retrofit.CourseApi
 import com.marioban2dam.educonnect.retrofit.RetrofitClient
 import com.marioban2dam.educonnect.ui.CourseGradesActivity
+import com.marioban2dam.educonnect.ui.CreateCourseActivity
 import com.marioban2dam.educonnect.ui.ProfileActivity
 import com.marioban2dam.educonnect.ui.SelectPersonActivity
 import com.marioban2dam.educonnect.ui.StudentHomeActivity
@@ -46,7 +47,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class StudentHomeViewModel : ViewModel() {
+class TeacherHomeViewModel : ViewModel() {
     var cours by mutableStateOf<List<CourseInterface>>(emptyList())
         private set
 
@@ -57,8 +58,8 @@ class StudentHomeViewModel : ViewModel() {
                     ?.let { RetrofitClient.getInstance(it) }
                     ?: RetrofitClient.instance
                 val api = retrofit.create(CourseApi::class.java)
-                val fetchedCourses = api.getCoursesByUserId(userId.toString())
                 Log.d("CoursesListAPI", "Fetching and userId: $userId")
+                val fetchedCourses = api.getCoursesByTeacherId(userId.toString())
                 Log.d("CoursesListAPI", fetchedCourses.toString())
                 cours = fetchedCourses
             } catch (e: Exception) {
@@ -70,8 +71,8 @@ class StudentHomeViewModel : ViewModel() {
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun StudentHomeScreen(
-    viewModel: StudentHomeViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
+fun TeacherHomeScreen(
+    viewModel: TeacherHomeViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
 ) {
     val context = LocalContext.current
 
@@ -88,7 +89,11 @@ fun StudentHomeScreen(
         viewModel.fetchCourses(token, userId)
     }
 
-    val courses = viewModel.cours
+    val cours = viewModel.cours + CourseInterface(
+        name = "Create Course",
+        description = "Create a new course",
+        iconResId = R.drawable.baseline_add_24
+    )
 
     Box(
         modifier = Modifier
@@ -136,8 +141,8 @@ fun StudentHomeScreen(
                 .padding(horizontal = 16.dp)
                 .padding(top = 230.dp, bottom = 16.dp)
         ) {
-            items(courses.size) { index ->
-                val course = courses[index]
+            items(cours.size) { index ->
+                val course = cours[index]
                 val iconResId = when (course.name) {
                     "Programming" -> R.drawable.code_slash
                     "Databases" -> R.drawable.group
@@ -145,94 +150,101 @@ fun StudentHomeScreen(
                     "Web Development" -> R.drawable.globe
                     "Services" -> R.drawable.vector__4_
                     "FOL" -> R.drawable.vector__3_
+                    "Create Course" -> R.drawable.baseline_add_24
                     else -> R.drawable.android
                 }
 
-                StudentReusableBoxForCourses(
+                TeacherReusableBoxForCourses(
                     name = course.name,
                     iconResId = iconResId,
                     onClick = {
-                        val intent2 =
-                            Intent(context, TeacherCourseDetailActivity::class.java).apply {
-                                putExtra("courseId", course.id)
-                                putExtra("courseName", course.name)
-                                putExtra("courseDescription", course.description)
-                                putExtra("courseIconResId", course.iconResId)
-                                putExtra("token", token)
-                            }
-                        context.startActivity(intent2)
+                        if (course.name == "Create Course") {
+                            val intent = Intent(context, CreateCourseActivity::class.java)
+                            context.startActivity(intent)
+                        } else {
+                            val intent2 =
+                                Intent(context, TeacherCourseDetailActivity::class.java).apply {
+                                    putExtra("courseId", course.id)
+                                    putExtra("courseName", course.name)
+                                    putExtra("courseDescription", course.description)
+                                    putExtra("courseIconResId", course.iconResId)
+                                    putExtra("token", token)
+                                }
+                            context.startActivity(intent2)
+                        }
                     }
                 )
             }
         }
 
-        StudentBottomNavigationBar(selectedIndex = 0, onItemClick = { index ->
-            when (index) {
-                0 -> {
-                    val isTeacher = decodeRoleFromToken(token.toString()) == "Teacher"
-                    val intent = if (isTeacher) {
-                        Intent(context, TeacherHomeActivity::class.java)
-                    } else {
-                        Intent(context, StudentHomeActivity::class.java)
+        TeacherBottomNavigationBar(
+            selectedIndex = 0,
+            onItemClick = { index ->
+                when (index) {
+                    0 -> {
+                        val isTeacher = decodeRoleFromToken(token.toString()) == "Teacher"
+                        val intent = if (isTeacher) {
+                            Intent(context, TeacherHomeActivity::class.java)
+                        } else {
+                            Intent(context, StudentHomeActivity::class.java)
+                        }
+                        intent.putExtra("token", token)
+                        context.startActivity(intent)
                     }
-                    intent.putExtra("token", token)
-                    context.startActivity(intent)
-                }
 
-                1 -> {
+                    1 -> {
 
-                    val intent = Intent(context, SelectPersonActivity::class.java)
-                    intent.putExtra("token", token)
-                    CoroutineScope(Dispatchers.IO).launch {
-                        try {
-                            val retrofit = token
-                                ?.let { RetrofitClient.getInstance(it) }
-                                ?: RetrofitClient.instance
-                            val api = retrofit.create(CourseApi::class.java)
-                            val users = api.getUsers().map { user -> user.id to user.name }
-                            withContext(Dispatchers.Main) {
-                                val intent = Intent(context, SelectPersonActivity::class.java)
-                                intent.putExtra("token", token)
+                        val intent = Intent(context, SelectPersonActivity::class.java)
+                        intent.putExtra("token", token)
+                        CoroutineScope(Dispatchers.IO).launch {
+                            try {
+                                val retrofit = token
+                                    ?.let { RetrofitClient.getInstance(it) }
+                                    ?: RetrofitClient.instance
+                                val api = retrofit.create(CourseApi::class.java)
+                                val users = api.getUsers().map { user -> user.id to user.name }
+                                withContext(Dispatchers.Main) {
+                                    val intent = Intent(context, SelectPersonActivity::class.java)
+                                    intent.putExtra("token", token)
 
-                                intent.putExtra("isTeacher", decodeRoleFromToken(token.toString()) == "Teacher")
+                                    intent.putExtra("isTeacher", decodeRoleFromToken(token.toString()) == "Teacher")
 
 
-                                val people = users.map { PersonParcelable(it.first, it.second) } // Mapear userId y name
-                                intent.putParcelableArrayListExtra("people", ArrayList(people)) // Pasar la lista de objetos PersonParcelable
-                                context.startActivity(intent)
+                                    val people = users.map { PersonParcelable(it.first, it.second) } // Mapear userId y name
+                                    intent.putParcelableArrayListExtra("people", ArrayList(people)) // Pasar la lista de objetos PersonParcelable
+                                    context.startActivity(intent)
+                                }
+                            } catch (e: Exception) {
+                                e.printStackTrace()
                             }
-                        } catch (e: Exception) {
-                            e.printStackTrace()
                         }
                     }
-                }
 
-                2 -> {
-                    val intent = Intent(context, CourseGradesActivity::class.java)
-                    intent.putExtra("token", token)
-                    intent.putExtra("userId", userId)
-                    context.startActivity(intent)
-                }
 
-                3 -> {
-                    val intent = Intent(context, ProfileActivity::class.java)
-                    intent.putExtra("token", token)
-                    intent.putExtra("userId", userId)
-                    context.startActivity(intent)
+                    3 -> {
+                        Log.d("Navigation", "Settings clicked")
+                        val intent = Intent(context, ProfileActivity::class.java)
+                        intent.putExtra("token", token)
+                        intent.putExtra("userId", userId)
+                        context.startActivity(intent)
+                    }
                 }
             }
-        })
+        )
     }
 }
 
 @Composable
-fun StudentReusableBoxForCourses(name: String, iconResId: Int, onClick: () -> Unit) {
+fun TeacherReusableBoxForCourses(name: String, iconResId: Int, onClick: () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxWidth(0.45f)
             .aspectRatio(1.45f)
             .border(width = 1.dp, color = Color(0xFF0E6BA8), shape = RoundedCornerShape(10.dp))
-            .background(Color(0xFF001C55), shape = RoundedCornerShape(10.dp))
+            .background(
+                if (name == "Create Course") Color(0x80000000) else Color(0xFF001C55),
+                shape = RoundedCornerShape(10.dp)
+            )
             .clickable { onClick() }
             .padding(8.dp)
     ) {
@@ -261,12 +273,11 @@ fun StudentReusableBoxForCourses(name: String, iconResId: Int, onClick: () -> Un
 }
 
 @Composable
-fun StudentBottomNavigationBar(selectedIndex: Int, onItemClick: (Int) -> Unit) {
+fun TeacherBottomNavigationBar(selectedIndex: Int, onItemClick: (Int) -> Unit) {
     val items = listOf(
-        Option("Home", R.drawable.vector__2_),
+        Option("Dashboard", R.drawable.vector__2_),
         Option("Messages", R.drawable.vector__1_),
-        Option("Grades", R.drawable.file_bar_graph_fill),
-        Option("Profile", R.drawable.vector)
+        Option("Settings", R.drawable.vector)
     )
 
     Box(
@@ -309,4 +320,3 @@ fun StudentBottomNavigationBar(selectedIndex: Int, onItemClick: (Int) -> Unit) {
         }
     }
 }
-
