@@ -6,13 +6,20 @@ using Microsoft.OpenApi.Models;
 using System.Text;
 using EduconnectAPI.Services;
 
+/// <summary>
+/// Entry point for the EduConnect API application. Configures services, authentication, and middleware.
+/// </summary>
 var builder = WebApplication.CreateBuilder(args);
 
-// Database connection
+/// <summary>
+/// Configures the database connection using PostgreSQL.
+/// </summary>
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// JWT authentication config
+/// <summary>
+/// Configures JWT authentication.
+/// </summary>
 var jwtKey = builder.Configuration["Jwt:Key"];
 var jwtIssuer = builder.Configuration["Jwt:Issuer"];
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -30,11 +37,19 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
+/// <summary>
+/// Registers the JWT service as a singleton.
+/// </summary>
 builder.Services.AddSingleton(new JwtService(jwtKey, jwtIssuer));
 
+/// <summary>
+/// Adds controller services.
+/// </summary>
 builder.Services.AddControllers();
 
-// Swagger config with JWT auth
+/// <summary>
+/// Configures Swagger for API documentation and JWT authentication support.
+/// </summary>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
@@ -72,7 +87,9 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+/// <summary>
+/// Configures the HTTP request pipeline.
+/// </summary>
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -81,7 +98,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthentication(); // <-- Este debe ir antes que UseAuthorization
+app.UseAuthentication(); // This must come before UseAuthorization
 app.UseAuthorization();
 
 app.MapControllers();

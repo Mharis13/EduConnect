@@ -30,13 +30,13 @@ namespace EduconnectAPI.Services
 
             //Signing with the key
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
+                
             //Create the token
             var token = new JwtSecurityToken(
                 issuer: _issuer,
                 audience: _issuer,
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(30),
+                expires:DateTime.Now.AddMinutes(30),
                 signingCredentials: creds
             );
 
