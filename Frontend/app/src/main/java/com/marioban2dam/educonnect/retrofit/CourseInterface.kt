@@ -2,6 +2,7 @@ package com.marioban2dam.educonnect.retrofit
 
 import com.marioban2dam.educonnect.ui.theme.Task
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
@@ -47,7 +48,7 @@ data class GradeSubmission(
 
 interface CourseApi {
     @POST("/message/send")
-    suspend fun sendMessage(@Body message: Message): Void
+    suspend fun sendMessage(@Body message: Message): Response<Unit>
 
     @GET("/message/{userId}/received")
     suspend fun getReceivedMessages(@Path("userId") userId: String): List<Message>

@@ -91,12 +91,12 @@ people: List<PersonParcelable>,
                         .fillMaxWidth()
                         .padding(vertical = 8.dp)
                         .clickable {
-                            onPersonSelected(name) // Muestra el nombre en la interfaz
+                            onPersonSelected(name)
 
                             val intent = Intent(context, ChatActivity::class.java).apply {
-                                putExtra("teacherName", name) // Envía el nombre
-                                putExtra("userId", id) // Envía el ID
-                                putExtra("token", token) // Envía el token
+                                putExtra("teacherName", name)
+                                putExtra("userId", id)
+                                putExtra("token", token)
                             }
                             context.startActivity(intent)
                         },
